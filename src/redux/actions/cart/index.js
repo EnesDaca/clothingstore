@@ -10,3 +10,14 @@ export const _addCartItem = (data) => {
     data,
   };
 };
+
+export const removeCartItem = (data) => async (dispatch) => {
+  dispatch(_removeCartItem(data));
+};
+
+export const _removeCartItem = (data) => {
+  return {
+    type: actionTypes.REMOVE_CART_ITEM,
+    data,
+  };
+};

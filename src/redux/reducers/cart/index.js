@@ -12,7 +12,7 @@ export const cart = (state = initialState, action) => {
     case actionTypes.ADD_CART_ITEM:
       let item_exists = state.item.find((x) => x.Id === action.data.Id);
       if (item_exists) {
-        item_exists.quantity += 1;
+        item_exists.quantity += action.data.quantity || 1; //cart value by specific number or in case someone is incrementing it
         item_exists.itemtotal = item_exists.price * item_exists.quantity;
         return {
           ...state,
@@ -22,7 +22,7 @@ export const cart = (state = initialState, action) => {
         };
       } else {
         let tmpdata = action.data;
-        tmpdata.quantity = 1;
+        tmpdata.quantity = action.data.quantity || 1; //cart value
         tmpdata.itemtotal = tmpdata.price * tmpdata.quantity;
 
         return {
@@ -37,6 +37,16 @@ export const cart = (state = initialState, action) => {
             tmpdata.quantity,
         };
       }
+    case actionTypes.REMOVE_CART_ITEM:
+      let tmpItem = state.item;
+      tmpItem = tmpItem.filter((x) => x.Id !== action.data.Id); //new array with the values which do not match with the given ID, so that particular item will be removed from colection.
+      return {
+        ...state,
+        item: [...tmpItem],
+        itemPriceTotal: tmpItem.reduce((a, b) => a + b.itemtotal || 0, 0),
+        totalItems: tmpItem.length,
+        totalQuantity: tmpItem.reduce((a, b) => a + b.quantity || 0, 0),
+      };
 
     default:
       return state;
