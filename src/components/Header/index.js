@@ -5,6 +5,7 @@ import TopMenu from "../TopMenu";
 import "./_header.scss";
 const Header = () => {
   const { cart } = useSelector((obj) => obj);
+  const userdetails = JSON.parse(sessionStorage.getItem("userdetails"));
   return (
     <>
       <header className="header">
@@ -37,10 +38,21 @@ const Header = () => {
             </div>
             <div className="col-lg-3">
               <div className="header__right">
-                <div className="header__right__auth">
-                  <a href="#">Sign-in</a>
-                  <a href="#">Sign-up</a>
-                </div>
+                {!userdetails ? (
+                  <div className="header__right__auth">
+                    <a href="#">Sign-in</a>
+                    <a href="#">Sign-up</a>
+                  </div>
+                ) : (
+                  <div className="header__right__auth">
+                    <img
+                      src={userdetails.picture}
+                      alt="user picture"
+                      style={{ width: 30, borderRadius: 50 }}
+                    />
+                    <a href="javascript:void(0)">{`Welcome ${userdetails.name}`}</a>
+                  </div>
+                )}
                 <ul className="header__right__widget">
                   <li>
                     <i className="fa fa-heart"></i>{" "}

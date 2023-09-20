@@ -6,6 +6,7 @@ import PayPalButton from "./PayPalButton";
 
 const Cart = () => {
   const { cart } = useSelector((state) => state);
+  const userdetails = JSON.parse(sessionStorage.getItem("userdetails"));
   const dispatch = useDispatch();
   const [showPayPalButton, setShowPayPalButton] = useState(false);
   const [paymentSuccess, setPaymentSuccess] = useState(false);
@@ -115,6 +116,17 @@ const Cart = () => {
                 <span>{`$ ${parseFloat(cart.itemPriceTotal).toFixed(2)}`}</span>
               </li>
             </ul>
+            {userdetails ? (
+              <button className="btn btn-warning">{`Proceed`}</button>
+            ) : (
+              <Link
+                to="/login"
+                state={{ redirectto: "/viewcart" }}
+                className="btn btn-warning"
+              >
+                {`Proceed`}
+              </Link>
+            )}
             {cart.item.length === 0 ? (
               <button className="btn btn-warning" disabled>
                 Proceed To Checkout
