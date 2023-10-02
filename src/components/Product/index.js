@@ -59,7 +59,9 @@ const Product = (props) => {
               <h6>
                 <button
                   onClick={() => {
-                    navigate("./productdetails", { state: { item } });
+                    navigate("./productdetails", {
+                      state: { item },
+                    });
                   }}
                 >
                   {item.name}

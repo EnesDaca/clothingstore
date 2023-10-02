@@ -43,7 +43,7 @@ const Cart = () => {
           {cart.item.length === 0 ? (
             <div className="alert alert-info">
               Your cart is empty.{" "}
-              <Link to={"/"} className="alert-link">
+              <Link to={"/clothingstore"} className="alert-link">
                 Continue shopping
               </Link>
             </div>
@@ -102,7 +102,7 @@ const Cart = () => {
       <div className="row">
         <div className="col-lg-6 col-md-6">
           {cart.item.length === 0 ? null : (
-            <Link to={"/"} className="btn btn-success">
+            <Link to={"/clothingstore"} className="btn btn-success">
               {`Continue Shopping`}
             </Link>
           )}
