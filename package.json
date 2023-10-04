@@ -1,6 +1,7 @@
 {
   "name": "clothing-store",
   "version": "0.1.0",
+  "homepage": "/clothingstore",
   "private": true,
   "dependencies": {
     "@paypal/react-paypal-js": "^8.1.3",

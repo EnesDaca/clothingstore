@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import * as actions from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
 
@@ -41,7 +40,11 @@ const Product = (props) => {
         <div className="col-lg-4 col-md-6">
           <div className="product__item">
             <div className="product__item__pic">
-              <img className="product__item__pic" src={item.imageSrc} />
+              <img
+                className="product__item__pic"
+                src={item.imageSrc}
+                alt={item.name}
+              />
               <ul className="product__hover">
                 <li>
                   <a href={item.imageSrc}>
@@ -74,7 +77,7 @@ const Product = (props) => {
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
               </div>
-              <div className="product__price">{item.price}</div>
+              <div className="product__price">{item.price} $</div>
             </div>
           </div>
         </div>

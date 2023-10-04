@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getTopMenu } from "../../redux/actions/topMenu";
 import "../TopMenu/_topmenu.scss";
+import About from "../About/about";
 
-//const menu = ['Home', 'Women', 'Men', 'Kids', 'Best Seller'];
+//const menu = ['Home', , 'Men', 'Kids', 'Best Seller'];
 
 const TopMenu = (props) => {
   return (
@@ -20,6 +21,11 @@ const TopMenu = (props) => {
                       <Link to="/clothingstore">{item}</Link>
                     </li>
                   ))}
+                  <li>
+                    <Link to={"/about"}>
+                      <About />
+                    </Link>
+                  </li>
                 </ul>
               </nav>
             </div>

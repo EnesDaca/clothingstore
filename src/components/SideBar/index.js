@@ -8,6 +8,14 @@ const Sidebar = () => {
   const { product } = useSelector((obj) => obj);
   const [categoryFilter, setCategoryFilter] = useState([]);
   const [filter, setFilter] = useState({});
+  const [categoryVisibility, setCategoryVisibility] = useState({});
+
+  function toggleCardBodyVisibility(categoryId) {
+    setCategoryVisibility((prevVisibility) => ({
+      ...prevVisibility,
+      [categoryId]: !prevVisibility[categoryId] || false,
+    }));
+  }
 
   useEffect(() => {
     dispatch(actions.getProductCategories());
@@ -55,40 +63,44 @@ const Sidebar = () => {
             <div className="category_accordian" key={index}>
               <div className="accordian">
                 <div className="card">
-                  <div className="card-heading">
+                  <div
+                    className="card-heading"
+                    onClick={() => toggleCardBodyVisibility(item.Id)}
+                  >
                     <a>{item.Category}</a>
                   </div>
-                  <div className="card-body">
-                    <ul>
-                      {item.SubCategory.map((subitem, ind) => (
-                        <li key={ind}>
-                          {/* <a href={null} onClick={() => applyFilter(subitem)}>
-                            {subitem.Name}
-                          </a> */}
-                          <div className="form-check">
-                            <input
-                              type="checkbox"
-                              value={subitem.Id}
-                              name={subitem.Name}
-                              className="form-check-input"
-                              onChange={(e) => checkboxchange(e, subitem)}
-                              checked={
-                                categoryFilter.find((x) => x.Id === subitem.Id)
-                                  ? true
-                                  : false
-                              }
-                            ></input>
-                            <label
-                              className="form-check-label"
-                              style={{ color: "#000" }}
-                            >
-                              {subitem.Name}
-                            </label>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {categoryVisibility[item.Id] && (
+                    <div className="card-body">
+                      <ul>
+                        {item.SubCategory.map((subitem, ind) => (
+                          <li key={ind}>
+                            <div className="form-check">
+                              <input
+                                type="checkbox"
+                                value={subitem.Id}
+                                name={subitem.Name}
+                                className="form-check-input"
+                                onChange={(e) => checkboxchange(e, subitem)}
+                                checked={
+                                  categoryFilter.find(
+                                    (x) => x.Id === subitem.Id
+                                  )
+                                    ? true
+                                    : false
+                                }
+                              ></input>
+                              <label
+                                className="form-check-label"
+                                style={{ color: "#000" }}
+                              >
+                                {subitem.Name}
+                              </label>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
