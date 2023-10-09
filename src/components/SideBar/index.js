@@ -67,7 +67,7 @@ const Sidebar = () => {
                     className="card-heading"
                     onClick={() => toggleCardBodyVisibility(item.Id)}
                   >
-                    <a>{item.Category}</a>
+                    <p>{item.Category}</p>
                   </div>
                   {categoryVisibility[item.Id] && (
                     <div className="card-body">

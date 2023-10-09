@@ -54,7 +54,7 @@ const Header = () => {
                       style={{ width: 30, borderRadius: 50 }}
                       alt="clothing store product"
                     />
-                    <a href="javascript:void(0)">{`Welcome ${userdetails.name}`}</a>
+                    <a href="#">{`Welcome ${userdetails.name}`}</a>
                   </div>
                 )}
                 <ul className="header__right__widget">
@@ -67,7 +67,7 @@ const Header = () => {
                         {cart.item.length > 0 && (
                           <div className="tip">{cart.item.length}</div>
                         )}
-                      </i>{" "}
+                      </i>
                     </Link>
                   </li>
                 </ul>
