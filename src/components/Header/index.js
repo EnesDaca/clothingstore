@@ -51,7 +51,6 @@ const Header = () => {
                   <div className="header__right__auth">
                     <img
                       src={userdetails.picture}
-                      alt="user picture"
                       style={{ width: 30, borderRadius: 50 }}
                     />
                     <a href="javascript:void(0)">{`Welcome ${userdetails.name}`}</a>

@@ -17,9 +17,9 @@ const Sidebar = () => {
     }));
   }
 
-  useEffect(() => {
-    dispatch(actions.getProductCategories());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(actions.getProductCategories());
+  // }, []);
 
   const applyFilter = (item) => {
     let tmpFilter = {

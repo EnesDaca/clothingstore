@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getTopMenu } from "../../redux/actions/topMenu";
 import "../TopMenu/_topmenu.scss";
-import About from "../About/about";
 
 const TopMenu = (props) => {
   return (

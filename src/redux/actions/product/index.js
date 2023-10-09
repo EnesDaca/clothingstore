@@ -1,36 +1,36 @@
 import * as actionTypes from "./types";
 import axios from "axios";
 
-const productCategories = [
-  {
-    Id: 1,
-    Category: "Kids",
-    SubCategory: [
-      {
-        Id: 1,
-        Name: "Dresses",
-      },
-      {
-        Id: 2,
-        Name: "Jacket",
-      },
-    ],
-  },
-  {
-    Id: 2,
-    Category: "Men",
-    SubCategory: [
-      {
-        Id: 1,
-        Name: "TShirt",
-      },
-      {
-        Id: 2,
-        Name: "Jacket",
-      },
-    ],
-  },
-];
+// const productCategories = [
+//   {
+//     Id: 1,
+//     Category: "Kids",
+//     SubCategory: [
+//       {
+//         Id: 1,
+//         Name: "Dresses",
+//       },
+//       {
+//         Id: 2,
+//         Name: "Jacket",
+//       },
+//     ],
+//   },
+//   {
+//     Id: 2,
+//     Category: "Men",
+//     SubCategory: [
+//       {
+//         Id: 1,
+//         Name: "TShirt",
+//       },
+//       {
+//         Id: 2,
+//         Name: "Jacket",
+//       },
+//     ],
+//   },
+// ];
 
 const product = [
   {

@@ -12,7 +12,7 @@ import "./_product.scss";
 const Product = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const products = useSelector(selectProducts);
+  // const products = useSelector(selectProducts);
   const filteredProduct = useSelector(selectFilteredProduct);
   const cart = useSelector((state) => state.cart);
 
@@ -47,7 +47,7 @@ const Product = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a href={null} onClick={() => addCartItem(item)}>
+                  <a href="#" onClick={() => addCartItem(item)}>
                     <span className="fa fa-shopping-cart" />
                   </a>
                 </li>
