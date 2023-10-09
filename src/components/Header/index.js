@@ -54,7 +54,7 @@ const Header = () => {
                       style={{ width: 30, borderRadius: 50 }}
                       alt="clothing store product"
                     />
-                    <a href="#">{`Welcome ${userdetails.name}`}</a>
+                    <p>{`Welcome ${userdetails.name}`}</p>
                   </div>
                 )}
                 <ul className="header__right__widget">
