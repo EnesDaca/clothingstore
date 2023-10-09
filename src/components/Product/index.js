@@ -2,28 +2,23 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
+import {
+  selectProducts,
+  selectFilteredProduct,
+} from "../../redux/selectors/selectors";
 
 import "./_product.scss";
-
-// const products = [
-//     require("../../assets/img/shop/shop-1.jpg"),
-//     require("../../assets/img/shop/shop-2.jpg"),
-//     require("../../assets/img/shop/shop-3.jpg"),
-//     require("../../assets/img/shop/shop-4.jpg"),
-//     require("../../assets/img/shop/shop-5.jpg"),
-// ]
 
 const Product = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const {
-    product: { products, filteredProduct },
-    cart,
-  } = useSelector((obj) => obj);
+  const products = useSelector(selectProducts);
+  const filteredProduct = useSelector(selectFilteredProduct);
+  const cart = useSelector((state) => state.cart);
 
   useEffect(() => {
     dispatch(actions.getProducts());
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     console.log("FROM REDUCER", cart);

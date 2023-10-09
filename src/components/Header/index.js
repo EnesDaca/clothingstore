@@ -44,8 +44,8 @@ const Header = () => {
               <div className="header__right">
                 {!userdetails ? (
                   <div className="header__right__auth">
-                    <a href="#">Sign-in</a>
-                    <a href="#"> Register</a>
+                    <Link to="./login">Sign-in</Link>
+                    <Link> Register</Link>
                   </div>
                 ) : (
                   <div className="header__right__auth">

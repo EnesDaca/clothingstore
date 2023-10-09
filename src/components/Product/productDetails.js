@@ -25,7 +25,7 @@ const ProductDetails = () => {
     <div className="container">
       <div className="row">
         <div className="col-lg-6">
-          <img src={item.item.imageSrc} alt="image" />
+          <img src={item.item.imageSrc} />
         </div>
         <div className="col-lg-6">
           <div className="product_details_text">
