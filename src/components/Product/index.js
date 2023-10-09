@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
 import {
-  selectProducts,
+  // selectProducts,
   selectFilteredProduct,
 } from "../../redux/selectors/selectors";
 
@@ -47,9 +47,9 @@ const Product = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" onClick={() => addCartItem(item)}>
+                  <button onClick={() => addCartItem(item)}>
                     <span className="fa fa-shopping-cart" />
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>

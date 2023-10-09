@@ -52,6 +52,7 @@ const Header = () => {
                     <img
                       src={userdetails.picture}
                       style={{ width: 30, borderRadius: 50 }}
+                      alt="clothing store product"
                     />
                     <a href="javascript:void(0)">{`Welcome ${userdetails.name}`}</a>
                   </div>
