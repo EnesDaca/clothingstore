@@ -57,7 +57,7 @@ export const getProductCategories = () => async (dispatch) => {
   let tempCat = [];
   await axios({
     method: "get",
-    url: "https://clothing-store-server-j9h7.onrender.com/product/api/getCategories",
+    url: `${process.env.REACT_APP_HOST}/product/api/getCategories`,
   })
     .then((res) => {
       console.log("RESPONSE FROM API", res.data);
@@ -90,12 +90,12 @@ export const getProductCategories = () => async (dispatch) => {
   });
 };
 
-const API_URL = process.env.REACT_APP_HOST;
+// const API_URL = process.env.REACT_APP_HOST;
 
 export const getProducts = () => async (dispatch) => {
   await axios({
     method: "get",
-    url: `${API_URL}/product/api/getProducts`,
+    url: `${process.env.REACT_APP_HOST}/product/api/getProducts`,
   })
     .then((res) => {
       try {
@@ -103,7 +103,7 @@ export const getProducts = () => async (dispatch) => {
           return {
             Id: item.id,
             categoryId: item.categoryid,
-            imageSrc: `${API_URL}/${item.productimg}`,
+            imageSrc: `${process.env.REACT_APP_HOST}/${item.productimg}`,
             name: item.productname,
             price: item.price,
           };
