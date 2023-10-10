@@ -57,7 +57,7 @@ export const getProductCategories = () => async (dispatch) => {
   let tempCat = [];
   await axios({
     method: "get",
-    url: "http://localhost:5000/product/api/getCategories",
+    url: "https://clothing-store-server-j9h7.onrender.com/product/api/getCategories",
   })
     .then((res) => {
       console.log("RESPONSE FROM API", res.data);
@@ -93,7 +93,7 @@ export const getProductCategories = () => async (dispatch) => {
 export const getProducts = () => async (dispatch) => {
   await axios({
     method: "get",
-    url: "http://localhost:5000/product/api/getProducts",
+    url: "https://clothing-store-server-j9h7.onrender.com/product/api/getProducts",
   })
     .then((res) => {
       try {
@@ -101,7 +101,7 @@ export const getProducts = () => async (dispatch) => {
           return {
             Id: item.id,
             categoryId: item.categoryid,
-            imageSrc: `http://localhost:5000/${item.productimg}`,
+            imageSrc: `https://clothing-store-server-j9h7.onrender.com/${item.productimg}`,
             name: item.productname,
             price: item.price,
           };
