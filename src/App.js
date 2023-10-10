@@ -13,11 +13,8 @@ function App() {
       <section>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/clothingstore/*" element={<LandingPage />} />
-            <Route
-              path="/clothingstore/productdetails"
-              element={<ProductDetails />}
-            />
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/productdetails" element={<ProductDetails />} />
             <Route path="/viewcart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
           </Route>
