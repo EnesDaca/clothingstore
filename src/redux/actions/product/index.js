@@ -90,8 +90,6 @@ export const getProductCategories = () => async (dispatch) => {
   });
 };
 
-// const API_URL = process.env.REACT_APP_HOST;
-
 export const getProducts = () => async (dispatch) => {
   await axios({
     method: "get",
