@@ -115,11 +115,6 @@ export const getProducts = () => async (dispatch) => {
     .catch((err) => {
       console.log("catch err", err);
     });
-
-  // dispatch({
-  //     type: actionTypes.PRODUCT,
-  //     data: product
-  // })
 };
 
 export const _getProducts = (data) => {
