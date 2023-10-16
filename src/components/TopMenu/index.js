@@ -15,7 +15,7 @@ const TopMenu = (props) => {
                 <ul>
                   {props.state.topMenu.map((item, index) => (
                     <li key={index}>
-                      <Link to="/clothingstore">{item}</Link>
+                      <Link to="/">{item}</Link>
                     </li>
                   ))}
                 </ul>

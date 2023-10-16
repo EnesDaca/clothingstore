@@ -5,7 +5,7 @@ import * as actions from "../../redux/actions";
 import jwt_decode from "jwt-decode";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const Login = (props) => {
+const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   // const redirectToNewPath = () => {

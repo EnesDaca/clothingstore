@@ -26,7 +26,7 @@
   }
 }
 
-.category_accordian {
+.category_accordion {
   .card {
     border: none;
     border-radius: 0;
@@ -44,11 +44,25 @@
   .card-heading {
     cursor: pointer;
 
-    a {
+    span {
       font-size: 14px;
       font-weight: 500;
       color: black;
       display: block;
+      position: relative;
+
+      &:before {
+        content: "\f106"; /* Arrow-up when not active */
+        font-family: "FontAwesome";
+        color: #666666;
+        position: absolute;
+        right: 30px;
+        top: 0;
+      }
+
+      &.active span:before {
+        content: "\f107"; /* Arrow-down when active */
+      }
     }
   }
 
@@ -62,15 +76,6 @@
       position: relative;
       padding-left: 16px;
       display: block;
-      &:before {
-        position: absolute;
-        left: 4px;
-        top: 14px;
-        height: 1px;
-        width: 4px;
-        background: #666666;
-        content: "";
-      }
 
       a {
         font-size: 14px;
@@ -79,38 +84,6 @@
       }
     }
   }
-}
-
-.category_accordian .card-heading a:after,
-.category_accordian .card-heading > a.active[aria-expanded="false"]:after {
-  content: "\f107";
-  font-size: 14px;
-  font-family: "FontAwesome";
-  color: #666666;
-  position: absolute;
-  right: 30px;
-  top: 0px;
-}
-
-.category_accordian .card-heading.active a:after {
-  content: "\f106";
-  font-size: 14px;
-  font-family: "FontAwesome";
-  color: #666666;
-  position: absolute;
-  right: 30px;
-  top: -1px;
-}
-
-.category_accordian .card-heading a[aria-expanded="true"]:after,
-.category_accordian .card-heading > a.active:after {
-  content: "\f106";
-  font-size: 14px;
-  font-family: "FontAwesome";
-  color: #666666;
-  position: absolute;
-  right: 30px;
-  top: -1px;
 }
 
 .btn-sidebar {
@@ -125,6 +98,7 @@
   border: 2px solid red;
   position: relative;
   background-color: #fff;
+
   &:hover {
     background-color: red;
     color: #fff;
