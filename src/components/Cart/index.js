@@ -43,7 +43,7 @@ const Cart = () => {
           {cart.item.length === 0 ? (
             <div className="alert alert-info">
               Your cart is empty.{" "}
-              <Link to={"/clothingstore"} className="alert-link">
+              <Link to={"/"} className="alert-link">
                 Continue shopping
               </Link>
             </div>
@@ -102,13 +102,13 @@ const Cart = () => {
       <div className="row">
         <div className="col-lg-6 col-md-6">
           {cart.item.length === 0 ? null : (
-            <Link to={"/clothingstore"} className="btn btn-success">
+            <Link to={"/"} className="btn btn-success">
               {`Continue Shopping`}
             </Link>
           )}
         </div>
         <div className="col-lg-4 col-md-4 offset-md-2 offset-lg-2">
-          <div className="alert alert-warning">
+          <div className="alert alert-warning mb-2">
             <h6>Cart Total</h6>
             <ul>
               <li style={{ color: "#000" }}>
@@ -128,8 +128,8 @@ const Cart = () => {
               </Link>
             )}
             {cart.item.length === 0 ? (
-              <button className="btn btn-warning" disabled>
-                Proceed To Checkout
+              <button className="btn btn-warning mr-10" disabled>
+                Pay with PayPal
               </button>
             ) : (
               <button
@@ -138,7 +138,7 @@ const Cart = () => {
                   handleProceedToCheckout();
                 }}
               >
-                Proceed To Checkout
+                Pay with PayPal
               </button>
             )}
             {showPayPalButton && (
