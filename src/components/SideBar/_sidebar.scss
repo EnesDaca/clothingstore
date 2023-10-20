@@ -15,7 +15,7 @@
       }
       &:after {
         position: absolute;
-        background: red;
+        background: #dc3545;
         content: "";
         left: 0;
         bottom: 0;
@@ -95,12 +95,12 @@
   padding: 5px;
   bottom: 2px;
   margin: 2px;
-  border: 2px solid red;
+  border: 2px solid #dc3545;
   position: relative;
   background-color: #fff;
 
   &:hover {
-    background-color: red;
+    background-color: #dc3545;
     color: #fff;
   }
 }

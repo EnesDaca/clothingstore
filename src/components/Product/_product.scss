@@ -11,6 +11,9 @@
     }
   }
 }
+.product__item__pic img {
+  cursor: pointer;
+}
 
 .product__hover {
   position: absolute;
@@ -33,17 +36,19 @@
       @include transition(all 0.4s ease 0.15s);
     }
     &:hover {
-      a {
-        background: red;
+      a,
+      button {
+        background: orange;
         span {
-          color: #fff;
+          color: black;
           -webkit-transform: rotate(360deg);
           transform: rotate(360deg);
         }
       }
     }
 
-    a {
+    a,
+    button {
       text-align: center;
       font-size: 18px;
       display: block;
@@ -52,7 +57,7 @@
       height: 48px;
       width: 48px;
       line-height: 48px;
-      color: #111111;
+      color: white;
       @include transition(all 0.5s);
 
       span {

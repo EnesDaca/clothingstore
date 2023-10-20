@@ -60,7 +60,7 @@ const Sidebar = () => {
     <div>
       <div className="sidebar_category">
         <div className="section-title">
-          <h4>Categories</h4>
+          <h4>Shop by product</h4>
         </div>
         {product.categories.map((item, index) => {
           const isCategoryVisible = categoryVisibility[item.Id];

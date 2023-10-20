@@ -22,10 +22,10 @@ const ProductDetails = () => {
   }, [cart]);
 
   return (
-    <div className="container">
+    <div className="container mt-4">
       <div className="row">
         <div className="col-lg-6">
-          <img src={item.item.imageSrc} alt="clothing-store-source" />
+          <img src={item.item.imageSrc} alt="clothing-store-product-details" />
         </div>
         <div className="col-lg-6">
           <div className="product_details_text">
@@ -38,7 +38,7 @@ const ProductDetails = () => {
               <i className="fa fa-star" />
             </div>
             <div className="product_details_price">
-              {`$ ${parseFloat(item.item.price).toFixed(2)}`}
+              {`€ ${parseFloat(item.item.price).toFixed(2)}`}
             </div>
             <p>Description goes here</p>
             <input
@@ -48,7 +48,7 @@ const ProductDetails = () => {
               onChange={(e) => setQty(e.target.value)}
             />
             <button
-              className="btn btn-danger"
+              className="btn btn-warning m-2"
               onClick={() => updateCart(item.item)}
             >
               {"Add to Cart"}

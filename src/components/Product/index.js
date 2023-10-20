@@ -39,10 +39,19 @@ const Product = (props) => {
                 className="product__item__pic"
                 src={item.imageSrc}
                 alt={item.name}
+                onClick={() => {
+                  navigate("./productdetails", {
+                    state: { item },
+                  });
+                }}
               />
               <ul className="product__hover">
                 <li>
-                  <a href={item.imageSrc}>
+                  <a
+                    href={item.imageSrc}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <span className="fa fa-arrows-alt" />
                   </a>
                 </li>
@@ -56,6 +65,7 @@ const Product = (props) => {
             <div className="product__item__text">
               <h6>
                 <button
+                  className="border-0 bg-white"
                   onClick={() => {
                     navigate("./productdetails", {
                       state: { item },
@@ -72,7 +82,7 @@ const Product = (props) => {
                 <i className="fa fa-star" />
                 <i className="fa fa-star" />
               </div>
-              <div className="product__price">{item.price} $</div>
+              <div className="product__price text-danger">{item.price} €</div>
             </div>
           </div>
         </div>
