@@ -39,7 +39,7 @@ const Cart = () => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-lg-12">
+        <div className="col-lg-12 mt-3">
           {cart.item.length === 0 ? (
             <div className="alert alert-info">
               Your cart is empty.{" "}
@@ -72,6 +72,7 @@ const Cart = () => {
                     <td>
                       <div>
                         <span
+                          className="p-2"
                           onClick={() =>
                             item.quantity <= 1 ? null : updateCart(item, "sub")
                           }
@@ -79,7 +80,10 @@ const Cart = () => {
                           <i className="fa fa-minus" />
                         </span>
                         <input value={item.quantity} disabled />
-                        <span onClick={() => updateCart(item, "add")}>
+                        <span
+                          className="p-2"
+                          onClick={() => updateCart(item, "add")}
+                        >
                           <i className="fa fa-plus" />
                         </span>
                       </div>
@@ -108,48 +112,50 @@ const Cart = () => {
           )}
         </div>
         <div className="col-lg-4 col-md-4 offset-md-2 offset-lg-2">
-          <div className="alert alert-warning mb-2">
+          <div className="alert alert-warning mb-2 mt-4">
             <h6>Cart Total</h6>
             <ul>
               <li style={{ color: "#000" }}>
                 Total :{" "}
-                <span>{`$ ${parseFloat(cart.itemPriceTotal).toFixed(2)}`}</span>
+                <span>{`€ ${parseFloat(cart.itemPriceTotal).toFixed(2)}`}</span>
               </li>
             </ul>
-            {userdetails ? (
-              <button className="btn btn-warning">{`Proceed`}</button>
-            ) : (
-              <Link
-                to="/login"
-                state={{ redirectto: "/viewcart" }}
-                className="btn btn-warning"
-              >
-                {`Proceed`}
-              </Link>
-            )}
-            {cart.item.length === 0 ? (
-              <button className="btn btn-warning mr-10" disabled>
-                Pay with PayPal
-              </button>
-            ) : (
-              <button
-                className="btn btn-warning"
-                onClick={() => {
-                  handleProceedToCheckout();
-                }}
-              >
-                Pay with PayPal
-              </button>
-            )}
-            {showPayPalButton && (
-              <div style={{ marginTop: "20px" }}>
-                <PayPalButton
-                  amount={parseFloat(cart.itemPriceTotal).toFixed(2)}
-                  onSuccess={paymentSuccessHandler}
-                  onError={paymentErrorHandler}
-                />
-              </div>
-            )}
+            <div className="d-flex justify-content-between">
+              {userdetails ? (
+                <button className="btn btn-warning">{`Proceed`}</button>
+              ) : (
+                <Link
+                  to="/login"
+                  state={{ redirectto: "/viewcart" }}
+                  className="btn btn-warning"
+                >
+                  {`Proceed`}
+                </Link>
+              )}
+              {cart.item.length === 0 ? (
+                <button className="btn btn-warning" disabled>
+                  Pay with PayPal
+                </button>
+              ) : (
+                <button
+                  className="btn btn-warning"
+                  onClick={() => {
+                    handleProceedToCheckout();
+                  }}
+                >
+                  Pay with PayPal
+                </button>
+              )}
+              {showPayPalButton && (
+                <div style={{ marginTop: "20px" }}>
+                  <PayPalButton
+                    amount={parseFloat(cart.itemPriceTotal).toFixed(2)}
+                    onSuccess={paymentSuccessHandler}
+                    onError={paymentErrorHandler}
+                  />
+                </div>
+              )}
+            </div>
             {paymentSuccess && (
               <div
                 className="alert alert-success"
